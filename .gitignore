@@ -1,0 +1,6 @@
+
+*.rar
+Compilador DKXX/
+*/build/
+*/*/private
+*.class
