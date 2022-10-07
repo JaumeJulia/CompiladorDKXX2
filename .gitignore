@@ -4,3 +4,6 @@ Compilador DKXX/
 */build/
 */*/private
 *.class
+Compilador_jAAj/build.xml
+Compilador_jAAj/nbproject/
+Compilador_jAAj/manifest.mf
