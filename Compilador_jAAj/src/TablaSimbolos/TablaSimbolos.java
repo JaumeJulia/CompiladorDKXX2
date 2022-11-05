@@ -5,6 +5,7 @@
  */
 package TablaSimbolos;
 
+import ArbolSintactico.ArbolSintactico.LTipo;
 import ArbolSintactico.Tipo;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,6 +57,25 @@ public class TablaSimbolos {
                     ts.add(s);
                 }
             }
+        }
+        return true;
+    }
+    
+    public boolean addSimbolo(String id, LTipo lTipo, TipoSub tipoSub, int pos) {
+        if (tipoSub.equals(TipoSub.TUPLA)) {
+            if (haySimbolo(id) != null) {
+                return false;
+            }
+            ArrayList<Simbolo> te = new ArrayList<>();
+            LTipo iter = lTipo;
+            while(iter != null){
+                te.add(new Simbolo(id, iter.tipo, nivel, tipoSub, pos));
+                iter = iter.lTipo;
+            }
+            Simbolo s = new Simbolo(id, nivel, tipoSub, pos, te);
+            ts.add(s);
+        } else {
+            return false;
         }
         return true;
     }

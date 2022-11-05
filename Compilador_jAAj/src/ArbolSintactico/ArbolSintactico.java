@@ -357,6 +357,34 @@ public class ArbolSintactico {
             return dest;
         }
     }
+    
+    public static class LTipo {  
+        public LTipo lTipo;
+        public Tipo tipo;
+        
+        public LTipo(Tipo tipo, LTipo lTipo){
+            this.lTipo = lTipo;
+            this.tipo = tipo;
+        }
+        
+        public LTipo(Tipo tipo){
+            this.tipo = tipo;
+        }
+    }
+    
+    public static class LValor {
+        public LValor lValor;
+        public Valor valor;
+        
+        public LValor(Valor valor, LValor lValor){
+            this.lValor = lValor;
+            this.valor = valor;
+        }
+        
+        public LValor(Valor valor){
+            this.valor = valor;
+        }
+    }
 
     /**
      * Nodo para el uso de una sentencia con ID.

@@ -10,5 +10,5 @@ package TablaSimbolos;
  * @author Felix
  */
 public enum TipoSub {
-    FUNCION, CONSTANTE, VARIABLE, PARAMETRO
+    FUNCION, CONSTANTE, VARIABLE, PARAMETRO, TUPLA
 }

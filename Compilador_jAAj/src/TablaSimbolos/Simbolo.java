@@ -1,6 +1,7 @@
 package TablaSimbolos;
 
 import ArbolSintactico.Tipo;
+import java.util.ArrayList;
 /**
  *
  * @author Felix
@@ -12,6 +13,7 @@ public class Simbolo {
     private int nivel;
     private TipoSub tipoSub;
     private int row;
+    private ArrayList<Simbolo> te;
 
     public Simbolo(String id, Tipo tipo, int nivel, TipoSub tipoSub, int row) {
         this.id = id;
@@ -19,6 +21,14 @@ public class Simbolo {
         this.nivel = nivel;
         this.tipoSub = tipoSub;
         this.row = row;
+    }
+    
+    public Simbolo(String id, int nivel, TipoSub tipoSub, int row, ArrayList<Simbolo> te) {
+        this.id = id;
+        this.nivel = nivel;
+        this.tipoSub = tipoSub;
+        this.row = row;
+        this.te = te;
     }
     
     public boolean equals(Simbolo s){
