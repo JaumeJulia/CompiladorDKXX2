@@ -991,7 +991,7 @@ class CUP$parser$actions {
 		int dleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int dright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Expresion d = (Expresion)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 if(addSim(i, lt, TipoSub.TUPLA)){sem.verVar(i, d, cur_token.left);}RESULT = new Declaracion( lt, new Id(i))
+		 if(addSim(i, lt, TipoSub.TUPLA)){sem.verTupla(i, d, lt, cur_token.left);}RESULT = new Declaracion(lt, new Id(i), d)
               CUP$parser$result = parser.getSymbolFactory().newSymbol("DECLARACION",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-4)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

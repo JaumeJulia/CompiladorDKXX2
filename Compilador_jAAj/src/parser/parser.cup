@@ -226,7 +226,7 @@ PARAMCONCAT     ::= COMA TYPE:t ID:i PARAMCONCAT:d {: addSim(i, t, TipoSub.PARAM
 
 DECLARACION     ::= CONST TYPE:t ID:i DECLAREND:d {: if(addSim(i, t, TipoSub.CONSTANTE)){sem.verConst(i, d, cur_token.left);} RESULT = new Declaracion(t, new Id(i), d); :}
                 | TYPE:t ID:i DECLAREND:d         {: if(addSim(i, t, TipoSub.VARIABLE)){sem.verVar(i, d, cur_token.left);} RESULT = new Declaracion(t, new Id(i), d); :}
-                | ID:i LCOR LTYPE:lt RCOR DECLAREND:d {: if(addSim(i, lt, TipoSub.TUPLA)){sem.verVar(i, d, cur_token.left);}RESULT = new Declaracion( lt, new Id(i)):}
+                | ID:i LCOR LTYPE:lt RCOR DECLAREND:d {: if(addSim(i, lt, TipoSub.TUPLA)){sem.verTupla(i, d, lt, cur_token.left);}RESULT = new Declaracion(lt, new Id(i), d):}
                 ;
 
 DECLAREND       ::= ASIGNACION:a {: RESULT = a; :}

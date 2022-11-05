@@ -129,6 +129,52 @@ public class Semantico {
         }
         return false;
     }
+    
+    /**
+     * Verifica Tuplas
+     * @param id
+     * @param expresion
+     * @param lTipo
+     * @param linea
+     * @return 
+     */
+    public boolean verTupla(String id, Expresion expresion, LTipo lTipo, int linea){
+        Simbolo s = ts.getSimbolo(id);
+        if(s != null){
+            if(expresion != null){
+                LTipo iter = lTipo;
+                LValor lValor = expresion.lValor;
+                while(iter != null && lValor != null){
+                    switch(iter.tipo){
+                        case BOOLEAN:
+                            if(lValor.valor.bol == null){
+                                addError(0, linea, id);
+                                return false;
+                            }
+                            break;
+                        case INT:
+                            if(lValor.valor.num == null){
+                                addError(0, linea, id);
+                                return false;
+                            }
+                            break;
+                        default:
+                            return false;
+                    }
+                    iter = iter.lTipo;
+                    lValor = lValor.lValor;
+                }
+                if(iter != null || lValor != null){
+                    addError(11, linea, id); //El número de campos no coincide
+                    return false;
+                }
+            }
+        } else {
+            addError(1, linea, id);
+            return false;
+        }
+        return true;
+    }
 
     /**
      * Verifica Retornos
@@ -232,9 +278,19 @@ public class Semantico {
             }
         }
         if (e.e == null) {
-            if (!verificarValor(e.v, opt)) {
-                addError(0, l, opt.toString());
-                return false;
+            if(e.lValor != null){
+                LValor iter = e.lValor;
+                while(iter != null){
+                    if (!verificarValor(iter.valor, opt)) {
+                        addError(0, l, opt.toString());
+                        return false;
+                    }
+                }
+            } else {
+                if (!verificarValor(e.v, opt)) {
+                    addError(0, l, opt.toString());
+                    return false;
+                }
             }
         } else {
             if (!verExpr(e.e, opt, l)) {
@@ -328,6 +384,9 @@ public class Semantico {
                 break;
             case 10:
                 errores.add("Hay parametros de mas en la funcion \"" + aux + "\" en linea " + l);
+                break;
+            case 11:
+                errores.add("El número de campos de \"" + aux + "\" no coincide en linea " + l);
                 break;
         }
 

@@ -306,11 +306,18 @@ public class ArbolSintactico {
     public static class Declaracion {
 
         public Tipo tipo;
+        public LTipo lTipo;
         public Id id;
         public Expresion expr;
 
         public Declaracion(Tipo t, Id i, Expresion d) {
             this.tipo = t;
+            this.id = i;
+            this.expr = d;
+        }
+        
+        public Declaracion(LTipo lTipo, Id i, Expresion d) {
+            this.lTipo = lTipo;
             this.id = i;
             this.expr = d;
         }
@@ -550,6 +557,7 @@ public class ArbolSintactico {
 
         public int idx;
         public Valor v;
+        public LValor lValor;
         public Expresion e;
         public Operacion oper;
 
@@ -563,6 +571,10 @@ public class ArbolSintactico {
             this.e = e;
             this.oper = oper;
             this.idx = 1;
+        }
+        
+        public Expresion(LValor lValor){
+            this.lValor = lValor;
         }
 
         public Operacion getOper() {
