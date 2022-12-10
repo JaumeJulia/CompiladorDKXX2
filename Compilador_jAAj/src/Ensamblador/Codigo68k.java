@@ -41,10 +41,10 @@ public class Codigo68k {
         // Finalizacion de la simulacion.
         codigo.add("\tSIMHALT");
         codigo.add(" ");
-        memoria(ctd.getTv()); // Adiccion de la memoria.
+        memoria(ctd.getTv()); // Adicion de la memoria.
         codigo.add("\tDC.W 0");
         codigo.add(" ");
-        subrutinas(); // Adiccion de las subrutinas del ensamblador.
+        subrutinas(); // Adicion de las subrutinas del ensamblador.
         codigo.add("\tEND START");
     }
 

@@ -399,6 +399,14 @@ public class ArbolSintactico {
         public LValor(Valor valor){
             this.valor = valor;
         }
+        
+        public String codigoIntermedio() {
+            valor.codigoIntermedio();
+            if(lValor != null){
+                lValor.codigoIntermedio();
+            }
+            return null;
+        }
     }
 
     /**
@@ -746,6 +754,12 @@ public class ArbolSintactico {
         public Valor(IdSentencia f) {
             this.fun = f;
             this.idx = 4;
+        }
+        
+        public Valor(Id i, Numero n){
+            //Hay que debatir si hacer una clase tupla, desde la que generar su codigo intermedio correspondiente.
+            //Determinar tambien como se sacan los valores de las variables, así sabremos como van a funcionar las tuplas.
+            
         }
 
         public String codigoIntermedio() {
