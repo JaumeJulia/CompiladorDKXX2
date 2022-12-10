@@ -141,11 +141,11 @@ non terminal    Dparam          PARAMCONCAT;
 non terminal    Declaracion     DECLARACION;
 non terminal    Expresion       DECLAREND;
 non terminal    Tipo            TYPE;
-non terminal    Tipo            LTYPE;
+non terminal    LTipo            LTYPE;
 non terminal    Expresion       ASIGNACION;
 non terminal    Expresion       EXPRESION;
 non terminal    Valor           VALOR;
-non terminal    Valor           LVALOR;
+non terminal    LValor           LVALOR;
 non terminal    Operacion       OPERACION;
 non terminal    Operaciones     OP;
 non terminal    Param           FUNCION;
@@ -226,7 +226,7 @@ PARAMCONCAT     ::= COMA TYPE:t ID:i PARAMCONCAT:d {: addSim(i, t, TipoSub.PARAM
 
 DECLARACION     ::= CONST TYPE:t ID:i DECLAREND:d {: if(addSim(i, t, TipoSub.CONSTANTE)){sem.verConst(i, d, cur_token.left);} RESULT = new Declaracion(t, new Id(i), d); :}
                 | TYPE:t ID:i DECLAREND:d         {: if(addSim(i, t, TipoSub.VARIABLE)){sem.verVar(i, d, cur_token.left);} RESULT = new Declaracion(t, new Id(i), d); :}
-                | ID:i LCOR LTYPE:lt RCOR DECLAREND:d {: if(addSim(i, lt, TipoSub.TUPLA)){sem.verTupla(i, d, lt, cur_token.left);}RESULT = new Declaracion(lt, new Id(i), d):}
+                | ID:i LCOR LTYPE:lt RCOR DECLAREND:d {: if(addSim(i, lt, TipoSub.TUPLA)){sem.verTupla(i, d, lt, cur_token.left);}RESULT = new Declaracion(lt, new Id(i), d); :}
                 ;
 
 DECLAREND       ::= ASIGNACION:a {: RESULT = a; :}
@@ -237,8 +237,8 @@ TYPE            ::= INT {: RESULT = Tipo.INT; :}
                 | BOOL  {: RESULT = Tipo.BOOLEAN; :}
                 ;
 
-LTYPE           ::= TYPE:t                  {: RESULT = new LTYPE(t); :}    
-                | TYPE:t COMA LTYPE:lt      {: RESULT = new LTYPE(t, lt); :}
+LTYPE           ::= TYPE:t                  {: RESULT = new LTipo(t); :}    
+                | TYPE:t COMA LTYPE:lt      {: RESULT = new LTipo(t, lt); :}
                 ;
 
 ASIGNACION      ::= IGUAL EXPRESION:e {: RESULT = e; :}
@@ -256,8 +256,8 @@ VALOR           ::= ID:id          {: sem.verId(id, cur_token.left); RESULT = ne
                 | ID:i FUNCION:f   {: if(sem.verId(i, cur_token.left)){ sem.verFunc(i, f, cur_token.left); } RESULT = new Valor(new IdSentencia(new Id(i), new SentenciaId(f))); :}
                 ;
 
-LVALOR          ::= VALOR:v                 {: RESULT = new LVALOR(v); :}
-                |   VALOR:v COMA LVALOR:lv  {: RESULT = new LVALOR(v, lv); :}
+LVALOR          ::= VALOR:v                 {: RESULT = new LValor(v); :}
+                |   VALOR:v COMA LVALOR:lv  {: RESULT = new LValor(v, lv); :}
                 ;
 
 OPERACION       ::= OP:o EXPRESION:e {: RESULT= new Operacion(o,e); :} 

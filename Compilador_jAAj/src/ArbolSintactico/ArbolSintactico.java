@@ -249,6 +249,7 @@ public class ArbolSintactico {
         public Out out;
         public IdSentencia ids;
         public While whi;
+        public Repeat repeat;
         public If sif;
 
         public Sentencia(Return e) {
@@ -280,6 +281,11 @@ public class ArbolSintactico {
             this.sif = e;
             this.idx = 5;
         }
+        
+        public Sentencia(Repeat e) {
+            this.repeat = e;
+            this.idx = 6;
+        }
 
         public String codigoIntermedio() {
             switch (idx) {
@@ -295,6 +301,8 @@ public class ArbolSintactico {
                     return whi.codigoIntermedio();
                 case 5:
                     return sif.codigoIntermedio();
+                case 6:
+                    return repeat.codigoIntermedio();
             }
             return null;
         }
@@ -463,7 +471,7 @@ public class ArbolSintactico {
     }
 
     /**
-     * Nodo que definie un bucle en el programa.
+     * Nodo que define un bucle en el programa.
      */
     public static class While {
 
@@ -489,6 +497,41 @@ public class ArbolSintactico {
 
             // Sentencias dentro del bucle.
             sent.codigoIntermedio();
+
+            // Salto para comprobar la condicion.
+            ctd.generar(Operador.GOTO, null, null, e1);
+            ctd.generar(Operador.SKIP, null, null, e3);
+            return null;
+        }
+    }
+    
+    /**
+     * Nodo que define un bucle repeat en el programa.
+     */
+    public static class Repeat {
+
+        public Expresion cond;
+        public Sentencias sent;
+
+        public Repeat(Expresion e, Sentencias s) {
+            this.cond = e;
+            this.sent = s;
+        }
+
+        public String codigoIntermedio() {
+            String e1 = ctd.newEtiqueta();
+            ctd.generar(Operador.SKIP, null, null, e1);
+            
+            // Sentencias dentro del bucle.
+            sent.codigoIntermedio();
+
+            // Condicion a seguir en el bucle.
+            String c = cond.codigoIntermedio();
+            String e2 = ctd.newEtiqueta();
+            String e3 = ctd.newEtiqueta();
+            ctd.generar(Operador.IGUALES, c, Integer.toString(-1), e2);
+            ctd.generar(Operador.GOTO, null, null, e3);
+            ctd.generar(Operador.SKIP, null, null, e2);
 
             // Salto para comprobar la condicion.
             ctd.generar(Operador.GOTO, null, null, e1);
