@@ -405,7 +405,7 @@ public class ArbolSintactico {
             if(lValor != null){
                 lValor.codigoIntermedio();
             }
-            return null;
+            return "0";
         }
     }
 
@@ -626,6 +626,7 @@ public class ArbolSintactico {
         
         public Expresion(LValor lValor){
             this.lValor = lValor;
+            idx = 2;
         }
 
         public Operacion getOper() {
@@ -654,6 +655,9 @@ public class ArbolSintactico {
                     break;
                 case 1:
                     op1 = e.codigoIntermedio();
+                    break;
+                case 2:
+                    op1 = lValor.codigoIntermedio();
                     break;
             }
 
@@ -755,12 +759,6 @@ public class ArbolSintactico {
             this.fun = f;
             this.idx = 4;
         }
-        
-        public Valor(Id i, Numero n){
-            //Hay que debatir si hacer una clase tupla, desde la que generar su codigo intermedio correspondiente.
-            //Determinar tambien como se sacan los valores de las variables, así sabremos como van a funcionar las tuplas.
-            
-        }
 
         public String codigoIntermedio() {
             switch (idx) {
@@ -773,12 +771,12 @@ public class ArbolSintactico {
                 case 3:
                     return in.codigoIntermedio();
                 case 4:
-                    return fun.codigoIntermedio();
+                    return fun.codigoIntermedio();                    
             }
             return null;
         }
     }
-
+    
     /**
      * Nodo que define un Numero.
      */

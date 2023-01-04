@@ -15,6 +15,7 @@ public class Simbolo {
     private int row;
     private ArrayList<Simbolo> te;
 
+    
     public Simbolo(String id, Tipo tipo, int nivel, TipoSub tipoSub, int row) {
         this.id = id;
         this.tipo = tipo;
@@ -58,5 +59,9 @@ public class Simbolo {
 
     public TipoSub getTipoSub() {
         return tipoSub;
+    }
+    
+    public ArrayList<Simbolo> getTe() {
+        return te;
     }
 }

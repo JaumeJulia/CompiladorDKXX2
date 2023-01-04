@@ -1,0 +1,7 @@
+[GOTO, null, null, run]
+[SKIP, null, null, run]
+[ASIG, 3, null, t1]
+[ASIG, true, null, t2]
+[ASIG, 0, null, tupla_0]
+[ASIG, 3, null, a_0]
+[OUT, a_0, null, null]

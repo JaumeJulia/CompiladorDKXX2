@@ -257,7 +257,7 @@ public class Codigo68k {
                     codigo.add("\tMOVE.W D0,4(A7)");
                 }
             } else {
-                codigo.add("\tMOVE.W " + getValor(i.getDest()) + ",4(A7)");;
+                codigo.add("\tMOVE.W " + getValor(i.getDest()) + ",4(A7)");
             }
         }
         codigo.add("\tRTS");

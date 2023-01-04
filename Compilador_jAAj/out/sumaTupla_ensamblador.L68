@@ -1,0 +1,140 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 04/01/2023 20:52:30
+
+00001000                             1              org $1000
+00001000                             2  START:
+00001000  4EB9 00001058              3              JSR SCREENSIZE
+00001006                             4  * -->[GOTO, null, null, run]
+00001006  4EF9 0000100C              5              JMP run
+0000100C                             6  * -->[SKIP, null, null, run]
+0000100C                             7  run:
+0000100C                             8  * -->[ASIG, 3, null, t1]
+0000100C  33FC 0003 0000104C         9              MOVE.W #3,t1
+00001014                            10  * -->[ASIG, true, null, t2]
+00001014  13FC 00FF 0000104E        11              MOVE.B #-1,t2
+0000101C                            12  * -->[ASIG, 0, null, tupla_0]
+0000101C  13FC 0000 00001048        13              MOVE.B #0,tupla_0
+00001024                            14  * -->[ASIG, 3, null, t3]
+00001024  33FC 0003 00001054        15              MOVE.W #3,t3
+0000102C                            16  * -->[ASIG, t3, null, a_0]
+0000102C  33F9 00001054 00001052    17              MOVE.W t3,a_0
+00001036                            18  * -->[OUT, a_0, null, null]
+00001036  3F39 00001052             19              MOVE.W a_0,-(A7)
+0000103C  4EB9 000010DC             20              JSR PRINTINT
+00001042  548F                      21              ADDA.L #2,A7
+00001044  FFFF FFFF                 22              SIMHALT
+00001048                            23   
+00001048                            24  tupla_0: DS.B 1
+0000104A= 0000                      25              DC.W 0
+0000104C                            26  t1: DS.W 1
+0000104E                            27  t2: DS.B 1
+00001050= 0000                      28              DC.W 0
+00001052                            29  a_0: DS.W 1
+00001054                            30  t3: DS.W 1
+00001056= 0000                      31              DC.W 0
+00001058                            32   
+00001058                            33  SCREENSIZE:
+00001058  223C 04000300             34              MOVE.L #1024*$10000+768,D1
+0000105E  103C 0021                 35              MOVE.B  #33,D0
+00001062  4E4F                      36              TRAP    #15
+00001064  4E75                      37              RTS
+00001066                            38  ISUMA:
+00001066  0800 000F                 39              BTST.L #15,D0
+0000106A  6700 001E                 40              BEQ ADD2
+0000106E  4640                      41              NOT.W D0
+00001070  5240                      42              ADDQ.W #1,D0
+00001072  0801 000F                 43              BTST.L #15,D1
+00001076  6700 000E                 44              BEQ ADD1
+0000107A  4641                      45              NOT.W D1
+0000107C  5241                      46              ADDQ.W #1,D1
+0000107E  D240                      47              ADD.W D0,D1
+00001080  4641                      48              NOT.W D1
+00001082  5241                      49              ADDQ.W #1,D1
+00001084  4E75                      50              RTS
+00001086                            51  ADD1:
+00001086  9240                      52              SUB.W D0,D1
+00001088  4E75                      53              RTS
+0000108A                            54  ADD2:
+0000108A  0801 000F                 55              BTST.L #15,D1
+0000108E  6700 000C                 56              BEQ ADD3
+00001092  4641                      57              NOT.W D1
+00001094  5241                      58              ADDQ.W #1,D1
+00001096  9041                      59              SUB.W D1,D0
+00001098  3200                      60              MOVE.W  D0,D1
+0000109A  4E75                      61              RTS
+0000109C                            62  ADD3:
+0000109C  D240                      63              ADD.W D0,D1
+0000109E  4E75                      64              RTS
+000010A0                            65  IRESTA:
+000010A0  0801 000F                 66              BTST.L #15,D1
+000010A4  6700 0022                 67              BEQ SUB2
+000010A8  4641                      68              NOT.W D1
+000010AA  5241                      69              ADDQ.W #1,D1
+000010AC  0800 000F                 70              BTST.L #15,D0
+000010B0  6700 000E                 71              BEQ SUB1
+000010B4  4640                      72              NOT.W D0
+000010B6  5240                      73              ADDQ.W #1,D0
+000010B8  9240                      74              SUB.W D0,D1
+000010BA  4641                      75              NOT.W D1
+000010BC  5241                      76              ADDQ.W #1,D1
+000010BE  4E75                      77              RTS
+000010C0                            78  SUB1:
+000010C0  D240                      79              ADD.W D0,D1
+000010C2  4641                      80              NOT.W D1
+000010C4  5241                      81              ADDQ.W #1,D1
+000010C6  4E75                      82              RTS
+000010C8                            83  SUB2:
+000010C8  0800 000F                 84              BTST.L #15,D0
+000010CC  6700 000A                 85              BEQ SUB3
+000010D0  4640                      86              NOT.W D0
+000010D2  5240                      87              ADDQ.W #1,D0
+000010D4  D240                      88              ADD.W D0,D1
+000010D6  4E75                      89              RTS
+000010D8                            90  SUB3:
+000010D8  9240                      91              SUB.W D0,D1
+000010DA  4E75                      92              RTS
+000010DC                            93  PRINTINT:
+000010DC  322F 0004                 94              MOVE.W 4(A7),D1
+000010E0  48C1                      95              EXT.L D1
+000010E2  7003                      96              MOVE.L #3,D0
+000010E4  4E4F                      97              TRAP #15
+000010E6  700B                      98              MOVE.L #11,D0
+000010E8  323C 00FF                 99              MOVE.W #$00FF,D1
+000010EC  4E4F                     100              TRAP #15
+000010EE  5241                     101              ADD.W #1,D1
+000010F0  C27C 00FF                102              AND.W #$00FF,D1
+000010F4  4E4F                     103              TRAP #15
+000010F6  4E75                     104              RTS
+000010F8                           105  GETINT:
+000010F8  7004                     106              MOVE.L #4,D0
+000010FA  4E4F                     107              TRAP #15
+000010FC  3F41 0004                108              MOVE.W D1,4(A7)
+00001100  4E75                     109              RTS
+00001102                           110              END START
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+ADD1                1086
+ADD2                108A
+ADD3                109C
+A_0                 1052
+GETINT              10F8
+IRESTA              10A0
+ISUMA               1066
+PRINTINT            10DC
+RUN                 100C
+SCREENSIZE          1058
+START               1000
+SUB1                10C0
+SUB2                10C8
+SUB3                10D8
+T1                  104C
+T2                  104E
+T3                  1054
+TUPLA_0             1048

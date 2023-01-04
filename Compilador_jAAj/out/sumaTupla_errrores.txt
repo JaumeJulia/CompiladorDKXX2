@@ -1,5 +1,3 @@
-	Errores sintactico:
-	 - Symbol: LCOR. Se esperaba: [SUMA, RESTA, MAYORQUE, MENORQUE, MAYORIGU, MENORIGU, IGUALES, OR, AND, LPAREN, RPAREN, NIGUALES] en linea 6
-	 - Symbol: LCOR. Se esperaba: [MULT, DIV, SUMA, RESTA, MAYORQUE, MENORQUE, MAYORIGU, MENORIGU, IGUALES, OR, AND, LPAREN, RPAREN, NIGUALES] en linea 7
-	 - Symbol: LCOR. Se esperaba: [MULT, DIV, SUMA, RESTA, MAYORQUE, MENORQUE, MAYORIGU, MENORIGU, IGUALES, OR, AND, LPAREN, RPAREN, NIGUALES] en linea 9
+	Errores semantico:
+	 - Tipo INT no compatible en linea 11
 -> No se pudo proseguir con la compilacion

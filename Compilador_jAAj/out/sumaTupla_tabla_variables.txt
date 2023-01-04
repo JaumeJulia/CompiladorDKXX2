@@ -1,0 +1,5 @@
+tupla null 0
+t1 INT 0
+t2 BOOLEAN 0
+a INT 0
+t3 INT 0

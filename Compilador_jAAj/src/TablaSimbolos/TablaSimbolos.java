@@ -7,6 +7,7 @@ package TablaSimbolos;
 
 import ArbolSintactico.ArbolSintactico.LTipo;
 import ArbolSintactico.Tipo;
+import ArbolSintactico.ArbolSintactico.Numero;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -60,7 +61,7 @@ public class TablaSimbolos {
         }
         return true;
     }
-    
+
     public boolean addSimbolo(String id, LTipo lTipo, TipoSub tipoSub, int pos) {
         if (tipoSub.equals(TipoSub.TUPLA)) {
             if (haySimbolo(id) != null) {
@@ -68,12 +69,24 @@ public class TablaSimbolos {
             }
             ArrayList<Simbolo> te = new ArrayList<>();
             LTipo iter = lTipo;
-            while(iter != null){
-                te.add(new Simbolo(id, iter.tipo, nivel, tipoSub, pos));
-                iter = iter.lTipo;
+            int indice = 0;
+            if (nivel == 0 && !ta.isEmpty()) {
+                while (iter != null) {
+                    ts.add(ts.indexOf(ta.get(1)), new Simbolo(id.concat(Integer.toString(indice)), iter.tipo, nivel, TipoSub.VARIABLE, pos));
+                    iter = iter.lTipo;
+                    indice++;
+                }
+                Simbolo s = new Simbolo(id, nivel, tipoSub, pos, te);
+                ts.add(ts.indexOf(ta.get(1)), s);
+            } else {
+                while (iter != null) {
+                    ts.add(new Simbolo(id.concat(Integer.toString(indice)), iter.tipo, nivel, TipoSub.VARIABLE, pos));
+                    iter = iter.lTipo;
+                    indice++;
+                }
+                Simbolo s = new Simbolo(id, nivel, tipoSub, pos, te);
+                ts.add(s);
             }
-            Simbolo s = new Simbolo(id, nivel, tipoSub, pos, te);
-            ts.add(s);
         } else {
             return false;
         }
@@ -135,6 +148,39 @@ public class TablaSimbolos {
         return null;
     }
 
+//    public Simbolo getSimbolo(String id, Numero n) {
+//        if (nivel != 0) {
+//            for (int i = inicioFuncion; i < ts.size(); i++) {
+//                Simbolo s = ts.get(i);            
+//                if (s.getId().equals(id)) {
+//                    try{
+//                        s = s.getTe().get(n.elem);
+//                    }catch(Exception e){
+//                        return null;
+//                    }
+//                    return s;
+//                }
+//            }
+//        }
+//        int max = 0;
+//        if (ta.isEmpty()) {
+//            max = ts.size();
+//        } else {
+//            max = ts.indexOf(ta.get(1));
+//        }
+//        for (int i = 0; i < max; i++) {
+//            Simbolo s = ts.get(i);
+//            if (s.getId().equals(id)) {
+//                try{
+//                    s = s.getTe().get(n.elem);
+//                }catch(Exception e){
+//                    return null;
+//                }
+//                return s;
+//            }
+//        }
+//        return null;
+//    }
     public Simbolo getFuncion(String id) {
         if (!ta.isEmpty()) {
             for (Simbolo s : ta.values()) {
