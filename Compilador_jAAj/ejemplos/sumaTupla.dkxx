@@ -1,6 +1,7 @@
 declare{
 	tupla[int, bool] = [3, true];
 	int a = 3;
+	bool b = true;
 }
 main{
 	output(a);
@@ -8,5 +9,5 @@ main{
 	output(tupla[0]);
 	# output(tupla[1]);
 	# Sumar con el contenido de la tupla
-	# output(5 + tupla[0]);
+	output(5 + tupla[0]);
 }

@@ -5,15 +5,49 @@ START:
 	JMP run
 * -->[SKIP, null, null, run]
 run:
+* -->[ASIG, 3, null, t1]
+	MOVE.W #3,t1
+* -->[ASIG, true, null, t2]
+	MOVE.B #-1,t2
+* -->[ASIG, t1, null, tupla_0_0]
+	MOVE.W t1,tupla_0_0
+* -->[ASIG, t2, null, tupla_1_0]
+	MOVE.B t2,tupla_1_0
 * -->[ASIG, 3, null, a_0]
 	MOVE.W #3,a_0
+* -->[ASIG, true, null, b_0]
+	MOVE.B #-1,b_0
 * -->[OUT, a_0, null, null]
 	MOVE.W a_0,-(A7)
 	JSR PRINTINT
 	ADDA.L #2,A7
+* -->[OUT, tupla_0_0, null, null]
+	MOVE.W tupla_0_0,-(A7)
+	JSR PRINTINT
+	ADDA.L #2,A7
+* -->[SUMA, 5, tupla_0_0, t6]
+	MOVE.W #5,D0
+	MOVE.W tupla_0_0,D1
+	JSR ISUMA
+	MOVE.W D1,t6
+* -->[OUT, t6, null, null]
+	MOVE.W t6,-(A7)
+	JSR PRINTINT
+	ADDA.L #2,A7
 	SIMHALT
  
+tupla_0: DS.B 1
+	DC.W 0
+t1: DS.W 1
+t2: DS.B 1
+	DC.W 0
+tupla_0_0: DS.W 1
+tupla_1_0: DS.B 1
+	DC.W 0
 a_0: DS.W 1
+b_0: DS.B 1
+	DC.W 0
+t6: DS.W 1
 	DC.W 0
  
 SCREENSIZE:

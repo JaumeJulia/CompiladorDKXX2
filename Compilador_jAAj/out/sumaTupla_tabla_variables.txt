@@ -1,7 +1,11 @@
 tupla null 0
 t1 INT 0
 t2 BOOLEAN 0
-tupla-0 INT 0
-tupla-1 BOOLEAN 0
+tupla_0 INT 0
+tupla_1 BOOLEAN 0
 a INT 0
 t3 INT 0
+b BOOLEAN 0
+t4 BOOLEAN 0
+t5 INT 0
+t6 INT 0

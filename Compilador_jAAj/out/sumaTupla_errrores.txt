@@ -1,4 +1,3 @@
 	Errores semantico:
-	 - No existe elemento "tupla0" en linea 7
-	 - Tipo INT no compatible en linea 11
+	 - Tipo INT no compatible en linea 12
 -> No se pudo proseguir con la compilacion

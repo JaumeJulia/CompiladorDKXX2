@@ -254,7 +254,7 @@ VALOR           ::= ID:id          {: sem.verId(id, cur_token.left); RESULT = ne
                 | BOLEAN:b         {: RESULT = new Valor(new Boleano(b)); :}
                 | IN LPAREN RPAREN {: RESULT = new Valor(new In()); :}
                 | ID:i FUNCION:f   {: if(sem.verId(i, cur_token.left)){ sem.verFunc(i, f, cur_token.left); } RESULT = new Valor(new IdSentencia(new Id(i), new SentenciaId(f))); :}
-                | ID:i LCOR NUMERO:n RCOR {: Numero num = new Numero(n); sem.verId(i.concat("-").concat(Integer.toString(num.elem)), cur_token.left); RESULT = new Valor(new Id(i.concat("-").concat(Integer.toString(num.elem)))); :}
+                | ID:i LCOR NUMERO:n RCOR {: Numero num = new Numero(n); sem.verId(i.concat("_").concat(Integer.toString(num.elem)), cur_token.left); RESULT = new Valor(new Id(i.concat("_").concat(Integer.toString(num.elem)))); :}
                 ;
 
 LVALOR          ::= VALOR:v                 {: RESULT = new LValor(v); :}

@@ -339,7 +339,7 @@ public class ArbolSintactico {
                     LTipo iterador = lTipo;
                     for(int i=0; i < variables.length; i++){
                         String aux[] = nom.split("_");
-                        String nombre = aux[0].concat("-").concat(Integer.toString(i));
+                        String nombre = aux[0].concat("_").concat(Integer.toString(i));
                         ctd.newVariable(iterador.tipo, nombre);
                         nombre = nombre.concat("_").concat(aux[1]);
                         ctd.generar(Operador.ASIG, variables[i], null, nombre);

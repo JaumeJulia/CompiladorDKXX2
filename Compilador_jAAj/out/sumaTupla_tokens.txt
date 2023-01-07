@@ -18,6 +18,11 @@ Symbol: ID Valor: a
 Symbol: IGUAL
 Symbol: NUMERO Valor: 3
 Symbol: PUNTYCOMA
+Symbol: BOOL
+Symbol: ID Valor: b
+Symbol: IGUAL
+Symbol: BOLEAN Valor: true
+Symbol: PUNTYCOMA
 Symbol: RKEY
 Symbol: MAIN
 Symbol: LKEY
@@ -28,6 +33,16 @@ Symbol: RPAREN
 Symbol: PUNTYCOMA
 Symbol: OUT
 Symbol: LPAREN
+Symbol: ID Valor: tupla
+Symbol: LCOR
+Symbol: NUMERO Valor: 0
+Symbol: RCOR
+Symbol: RPAREN
+Symbol: PUNTYCOMA
+Symbol: OUT
+Symbol: LPAREN
+Symbol: NUMERO Valor: 5
+Symbol: SUMA
 Symbol: ID Valor: tupla
 Symbol: LCOR
 Symbol: NUMERO Valor: 0
