@@ -45,18 +45,28 @@ public class Optimizacion {
 
             act = instrucciones.get(i);
             sig = instrucciones.get(i + 1);
-
-            if (RbrancamentsAdjacents(i, act, sig)) {
-            } else if (SaltoSobreSalto(i, act, sig)) {
-            } else if (AsignacionDiferida(i, act, sig)) {
-            } else if (CodigoInaccesible(i, act, sig)) {
-                i++;
-            } else if (OperacionesConstantes(i, act)) {
-            } 
-            else if (ReducciondeFuerza(i, act)) {
-            } 
-            else {
-                i++;
+            
+            if(sig != null){
+                if (RbrancamentsAdjacents(i, act, sig)) {
+                } else if (SaltoSobreSalto(i, act, sig)) {
+                } else if (AsignacionDiferida(i, act, sig)) {
+                } else if (CodigoInaccesible(i, act, sig)) {
+                    i++;
+                } else if (OperacionesConstantes(i, act)) {
+                } 
+                else if (ReducciondeFuerza(i, act)) {
+                } 
+                else {
+                    i++;
+                }
+            } else {
+                if (OperacionesConstantes(i, act)) {
+                } 
+                else if (ReducciondeFuerza(i, act)) {
+                } 
+                else {
+                    i++;
+                }
             }
 
         }

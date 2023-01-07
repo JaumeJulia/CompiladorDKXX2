@@ -1,3 +1,0 @@
-	Errores semantico:
-	 - Tipo INT no compatible en linea 12
--> No se pudo proseguir con la compilacion

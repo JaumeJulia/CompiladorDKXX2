@@ -549,15 +549,7 @@ public class ArbolSintactico {
 
             // Condicion a seguir en el bucle.
             String c = cond.codigoIntermedio();
-            String e2 = ctd.newEtiqueta();
-            String e3 = ctd.newEtiqueta();
-            ctd.generar(Operador.IGUALES, c, Integer.toString(-1), e2);
-            ctd.generar(Operador.GOTO, null, null, e3);
-            ctd.generar(Operador.SKIP, null, null, e2);
-
-            // Salto para comprobar la condicion.
-            ctd.generar(Operador.GOTO, null, null, e1);
-            ctd.generar(Operador.SKIP, null, null, e3);
+            ctd.generar(Operador.IGUALES, c, Integer.toString(-1), e1);
             return null;
         }
     }

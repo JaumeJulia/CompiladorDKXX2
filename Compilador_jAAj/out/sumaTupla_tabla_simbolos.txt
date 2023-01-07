@@ -1,5 +1,0 @@
-VARIABLE: tupla_0, tipo: INT, nivel: 0
-VARIABLE: tupla_1, tipo: BOOLEAN, nivel: 0
-TUPLA: tupla, tipo: null, nivel: 0
-VARIABLE: a, tipo: INT, nivel: 0
-VARIABLE: b, tipo: BOOLEAN, nivel: 0

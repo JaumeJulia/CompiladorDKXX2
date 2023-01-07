@@ -1,0 +1,11 @@
+declare{
+	int i = 0;
+}
+main{
+	# Sumar con el contenido de la tupla
+	repeat{
+		output(i);
+		i = i + 1;
+	}until( i <= 2 )
+	output(7);
+}
