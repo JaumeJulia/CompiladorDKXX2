@@ -120,7 +120,7 @@ public class CodigoTresDirecciones {
         return null;
     }
 
-    // Genera la instruccion en trres direcciones.
+    // Genera la instruccion en tres direcciones.
     public void generar(Operador a, String op1, String op2, String dest) {
         if (declaracion && npa == 0) {
             constante.add(new Instruccion(a, op1, op2, dest));

@@ -1192,7 +1192,7 @@ class CUP$parser$actions {
 		int nleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).left;
 		int nright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)).right;
 		String n = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-1)).value;
-		 Numero num = new Numero(n); sem.verId(i.concat(Integer.toString(num.elem)), cur_token.left); RESULT = new Valor(new Id(i.concat(Integer.toString(num.elem)))); 
+		 Numero num = new Numero(n); sem.verId(i.concat("-").concat(Integer.toString(num.elem)), cur_token.left); RESULT = new Valor(new Id(i.concat("-").concat(Integer.toString(num.elem)))); 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("VALOR",10, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

@@ -72,7 +72,7 @@ public class TablaSimbolos {
             int indice = 0;
             if (nivel == 0 && !ta.isEmpty()) {
                 while (iter != null) {
-                    ts.add(ts.indexOf(ta.get(1)), new Simbolo(id.concat(Integer.toString(indice)), iter.tipo, nivel, TipoSub.VARIABLE, pos));
+                    ts.add(ts.indexOf(ta.get(1)), new Simbolo(id.concat("-").concat(Integer.toString(indice)), iter.tipo, nivel, TipoSub.VARIABLE, pos));
                     iter = iter.lTipo;
                     indice++;
                 }
@@ -80,7 +80,7 @@ public class TablaSimbolos {
                 ts.add(ts.indexOf(ta.get(1)), s);
             } else {
                 while (iter != null) {
-                    ts.add(new Simbolo(id.concat(Integer.toString(indice)), iter.tipo, nivel, TipoSub.VARIABLE, pos));
+                    ts.add(new Simbolo(id.concat("-").concat(Integer.toString(indice)), iter.tipo, nivel, TipoSub.VARIABLE, pos));
                     iter = iter.lTipo;
                     indice++;
                 }

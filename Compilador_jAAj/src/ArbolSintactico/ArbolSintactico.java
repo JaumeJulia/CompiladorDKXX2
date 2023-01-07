@@ -334,7 +334,21 @@ public class ArbolSintactico {
             String nom = ctd.newVariable(tipo, id.codigoIntermedio());
             if (expr != null) {
                 String e = expr.codigoIntermedio();
-                ctd.generar(Operador.ASIG, e, null, nom);
+                if(lTipo != null){
+                    String variables[] = e.split("_");
+                    LTipo iterador = lTipo;
+                    for(int i=0; i < variables.length; i++){
+                        String aux[] = nom.split("_");
+                        String nombre = aux[0].concat("-").concat(Integer.toString(i));
+                        ctd.newVariable(iterador.tipo, nombre);
+                        nombre = nombre.concat("_").concat(aux[1]);
+                        ctd.generar(Operador.ASIG, variables[i], null, nombre);
+                        iterador = iterador.lTipo;
+                    }
+                } else {
+                    ctd.generar(Operador.ASIG, e, null, nom);
+                }
+                //ctd.generar(Operador.ASIG, e, null, nom);
             }
             return null;
         }
@@ -401,11 +415,11 @@ public class ArbolSintactico {
         }
         
         public String codigoIntermedio() {
-            valor.codigoIntermedio();
+            String valorCodigoIntermedio = valor.codigoIntermedio();
             if(lValor != null){
-                lValor.codigoIntermedio();
+                return valorCodigoIntermedio.concat("_").concat(lValor.codigoIntermedio());
             }
-            return "0";
+            return valorCodigoIntermedio;
         }
     }
 

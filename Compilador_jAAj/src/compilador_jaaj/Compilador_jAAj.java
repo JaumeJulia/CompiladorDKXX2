@@ -98,9 +98,9 @@ public class Compilador_jAAj {
             WriteFile(out + nombre + "_tabla_procedimientos.txt", ctd.printTp());
 
             // Codigo Ensamblador.
-            Codigo68k c68k = new Codigo68k();
-            c68k.generar(ctd);
-            WriteFile(out + nombre + "_ensamblador.X68", c68k.toString());
+            //Codigo68k c68k = new Codigo68k();
+            //c68k.generar(ctd);
+            //WriteFile(out + nombre + "_ensamblador.X68", c68k.toString());
 
             // Codigo Intermedio Optimizado.
             Optimizacion opt = new Optimizacion(ctd);
@@ -108,8 +108,8 @@ public class Compilador_jAAj {
             WriteFile(out + nombre + "_codigo_intermedio_optimizado.txt", ctd.toString());
 
             // Codigo Ensambladorr Optimizado.
-            c68k.generar(ctd);
-            WriteFile(out + nombre + "_ensamblador_optimizado.X68", c68k.toString());
+            //c68k.generar(ctd);
+            //WriteFile(out + nombre + "_ensamblador_optimizado.X68", c68k.toString());
 
             // Fin de la compilacion.
             System.out.println("-> Compilación completada");

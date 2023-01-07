@@ -5,12 +5,6 @@ START:
 	JMP run
 * -->[SKIP, null, null, run]
 run:
-* -->[ASIG, 3, null, t1]
-	MOVE.W #3,t1
-* -->[ASIG, true, null, t2]
-	MOVE.B #-1,t2
-* -->[ASIG, 0, null, tupla_0]
-	MOVE.B #0,tupla_0
 * -->[ASIG, 3, null, a_0]
 	MOVE.W #3,a_0
 * -->[OUT, a_0, null, null]
@@ -19,11 +13,6 @@ run:
 	ADDA.L #2,A7
 	SIMHALT
  
-tupla_0: DS.B 1
-	DC.W 0
-t1: DS.W 1
-t2: DS.B 1
-	DC.W 0
 a_0: DS.W 1
 	DC.W 0
  

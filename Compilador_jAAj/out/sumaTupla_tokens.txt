@@ -26,6 +26,14 @@ Symbol: LPAREN
 Symbol: ID Valor: a
 Symbol: RPAREN
 Symbol: PUNTYCOMA
+Symbol: OUT
+Symbol: LPAREN
+Symbol: ID Valor: tupla
+Symbol: LCOR
+Symbol: NUMERO Valor: 0
+Symbol: RCOR
+Symbol: RPAREN
+Symbol: PUNTYCOMA
 Symbol: RKEY
 Symbol: EOF
 Symbol: EOF

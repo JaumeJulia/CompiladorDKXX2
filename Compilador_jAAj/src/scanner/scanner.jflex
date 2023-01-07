@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 
 entero = [\-\+]?[1-9][0-9]* | [\-\+]?0
-variable = [A-Za-z_][A-Za-z_0-9]*
+variable = [A-Za-z][A-Za-z0-9]*
 
 coment = "#" [^\r\n]* [\r\n]?
 

@@ -5,7 +5,7 @@ declare{
 main{
 	output(a);
 	# Mostrar el contenido de la tupla
-	# output(tupla[0]);
+	output(tupla[0]);
 	# output(tupla[1]);
 	# Sumar con el contenido de la tupla
 	# output(5 + tupla[0]);
