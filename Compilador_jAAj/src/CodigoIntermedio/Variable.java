@@ -9,7 +9,8 @@ import ArbolSintactico.Tipo;
 
 /**
  *
- * @author felix
+ * @author Jaume Julià Vallespir, Joaquín González Alcover, Alberto Cugat Martín
+ * Alejandro Medina Perelló
  */
 public class Variable {
 

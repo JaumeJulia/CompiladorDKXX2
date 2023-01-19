@@ -7,7 +7,8 @@ package scanner;
 
 /**
  *
- * @author Felix
+ * @author Jaume Julià Vallespir, Joaquín González Alcover, Alberto Cugat Martín
+ * Alejandro Medina Perelló
  */
 public class ErrorLexico {
     private String token;

@@ -4,7 +4,8 @@ import ArbolSintactico.Tipo;
 import java.util.ArrayList;
 /**
  *
- * @author Felix
+ * @author Jaume Julià Vallespir, Joaquín González Alcover, Alberto Cugat Martín
+ * Alejandro Medina Perelló
  */
 public class Simbolo {
     

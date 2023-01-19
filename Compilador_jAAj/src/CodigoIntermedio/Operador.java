@@ -7,7 +7,8 @@ package CodigoIntermedio;
 
 /**
  *
- * @author Felix
+ * @author Jaume Julià Vallespir, Joaquín González Alcover, Alberto Cugat Martín
+ * Alejandro Medina Perelló
  */
 public enum Operador {
     MULT, DIV, SUMA, RESTA, MAYORQUE, MENORQUE, MAYORIGU,

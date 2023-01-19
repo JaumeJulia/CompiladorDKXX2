@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Felix Lluis Aguilar Ferrer, Jaume Julià Vallespir, Francisco José
- * Muñoz Navarro, Antonio Pujol Villegas
+ * @author Jaume Julià Vallespir, Joaquín González Alcover, Alberto Cugat Martín
+ * Alejandro Medina Perelló
  */
 public class Codigo68k {
 

@@ -9,7 +9,8 @@ import java_cup.runtime.ComplexSymbolFactory.ComplexSymbol;
 
 /**
  *
- * @author Felix
+ * @author Jaume Julià Vallespir, Joaquín González Alcover, Alberto Cugat Martín
+ * Alejandro Medina Perelló
  */
 public class Token {
     private ComplexSymbol simbolo;

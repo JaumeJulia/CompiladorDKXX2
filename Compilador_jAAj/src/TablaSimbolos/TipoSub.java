@@ -7,7 +7,8 @@ package TablaSimbolos;
 
 /**
  *
- * @author Felix
+ * @author Jaume Julià Vallespir, Joaquín González Alcover, Alberto Cugat Martín
+ * Alejandro Medina Perelló
  */
 public enum TipoSub {
     FUNCION, CONSTANTE, VARIABLE, PARAMETRO, TUPLA
