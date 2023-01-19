@@ -136,7 +136,7 @@ public class CodigoTresDirecciones {
         this.declaracion = true;
     }
 
-    // FFin de declaraciones del programa.
+    // Fin de declaraciones del programa.
     public void enddeclaracion() {
         this.declaracion = false;
         generar(Operador.SKIP, null, null, "run");

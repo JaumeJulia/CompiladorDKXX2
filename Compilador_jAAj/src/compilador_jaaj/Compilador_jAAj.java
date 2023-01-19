@@ -38,8 +38,8 @@ public class Compilador_jAAj {
             System.err.println("-> Indica un fitxer amb les dades d'entrada");
             System.exit(0);
         }
-        if (!args[0].endsWith(".dkxx")) {
-            System.err.println("-> el Archivo no es del tipo dkxx");
+        if (!args[0].endsWith(".jaaj")) {
+            System.err.println("-> el Archivo no es del tipo jaaj");
             System.exit(0);
         }
         String nombre = FileName(args[0]);
