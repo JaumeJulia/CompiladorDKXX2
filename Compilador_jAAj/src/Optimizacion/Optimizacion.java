@@ -1,7 +1,3 @@
-/*
-PUEDE QUE FALTA ALGUNOS CASOS EN LAS OPTIMIZACIONES TIPO QUE UNA ASIGNACION NO ESTA OPTIMIZADA PORQUE ESE CASO SE ME HA OLVIDADO O ALGO
-DECIRMELO Y SE PUEDE CAMBIAR, PERO YO SEGUIRE MIRANDO CASOS QUE SE ME HAN OLVIDADO
- */
 package Optimizacion;
 
 import CodigoIntermedio.CodigoTresDirecciones;
@@ -75,7 +71,7 @@ public class Optimizacion {
     }
 
     //ELIMINA ASIGCIONES QUE SEAN CONSECUTIVAS
-    private boolean AsignacionDiferida(int i, Instruccion act, Instruccion sig) { //falta un caso nuevo de los asigna con los in y outs con variables temporales
+    private boolean AsignacionDiferida(int i, Instruccion act, Instruccion sig) {
 
         if (act.getOperacion() == Operador.ASIG && sig.getOperacion() == Operador.ASIG) {
 
@@ -207,7 +203,7 @@ public class Optimizacion {
 
         if (act.esCondicional() && sig.getOperacion() == Operador.GOTO) {
 
-            if (act.getOp1() != null && act.getOp2() != null) {//NO ME ACUERDO DE PORQUE ESTA EST IF CREO QUE SE PUEDE QUITAR PERO NO LO SE EXACTAMENTE, puede que para que no pete
+            if (act.getOp1() != null && act.getOp2() != null) {
                 String op1 = act.getOp1();
                 String op2 = act.getOp2();
                 String dest = sig.getDest();
